@@ -1,0 +1,701 @@
+#playingField {
+	position: relative;
+}
+
+/* оформление результа игры */
+.gameResultContainer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.9;
+	z-index: 5;
+	box-shadow: 0px 0px 143px 159px black;
+	border-radius: 38px;
+}
+
+.playerVictory,
+.playerVictory2,
+.computerVictory,
+.emptyDeck {
+	position: relative;
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	font-family: "Press Start 2P", cursive;
+	line-height: 1.5;
+	letter-spacing: 10px;
+}
+
+.playerVictory {
+	top: 180px;
+	animation: resultAnimation 4s ease-out forwards;
+}
+
+
+.playerVictory2 {
+	top: 160px;
+	animation: resultAnimation 4s ease-out forwards;
+}
+
+.computerVictory {
+	top: 200px;
+	animation: resultAnimation 4s ease-out; forwards;
+}
+
+.emptyDeck {
+	top: 150px;
+	animation: resultAnimation 4s linear forwards;
+}
+
+@keyframes resultAnimation {
+	0% {
+		transform: scale(1.5) translateY(-50px);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.5) translateY(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1.5) translateY(0);
+	}
+}
+/* оформление результа игры */
+
+/* оформление последнего шанса */
+.lastChanceContainer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.9;
+	z-index: 5;
+	animation: lastChanceAnimation 6s ease-out forwards;
+	box-shadow: 0px 0px 143px 159px black;
+	border-radius: 38px;
+}
+
+.lastChanceBlock {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url("../img/redDeath.svg") center center no-repeat;
+	z-index: 5;
+	animation: lastChanceAnimation 6s ease-out forwards;
+}
+
+@keyframes lastChanceAnimation {
+	0% {
+		opacity: 0.2;
+	}
+	5% {
+		opacity: 0.55;
+	}
+	10% {
+		opacity: 0.9;
+	}
+	15% {
+		opacity: 0.55;
+	}
+	20% {
+		opacity: 0.2;
+	}
+	25% {
+		opacity: 0.55;
+	}
+	30% {
+		opacity: 0.9;
+	}
+	35% {
+		opacity: 0.55;
+	}
+	40% {
+		opacity: 0.2;
+	}
+	45% {
+		opacity: 0.55;
+	}
+	50% {
+		opacity: 0.9;
+	}
+	55% {
+		opacity: 0.55;
+	}
+	100% {
+		opacity: 0.9;
+	}
+}
+
+.lastChance {
+	text-align: center;
+	margin: 72px 0;
+	color: white;
+	font-size: 90px;
+	font-family: "Press Start 2P", cursive;
+	line-height: 1.5;
+	letter-spacing: 10px;
+}
+/* оформление последнего шанса */
+
+/* поле с уровнем */
+.currentLevel {
+	position: absolute;
+	width: 250px;
+	height: 50px;
+}
+
+.currentLevelContainer {
+	text-align: center;
+	position: relative;
+	margin: 0;
+	color: white;
+	font-size: 25px;
+	font-family: "Press Start 2P", cursive;
+	top: 12.5px;
+}
+/* поле с уровнем */
+
+/* оформление выбора */
+.choiceField {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.9;
+	z-index: 5;
+	box-shadow: 0px 0px 143px 159px black;
+	border-radius: 38px;
+}
+
+.choiceContainer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 75px;
+	color: white;
+	font-size: 40px;
+	font-family: "Press Start 2P", cursive;
+	line-height: 1.5;
+	letter-spacing: 10px;
+}
+
+.positiveChoiceContainer {
+	position: absolute;
+	top: 310px;
+	left: 360px;
+}
+
+.negativeChoiceContainer {
+	position: absolute;
+	top: 310px;
+	left: 500px;
+}
+
+.positiveChoice,
+.negativeChoice {
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+
+.positiveChoiceHover:hover,
+.negativeChoiceHover:hover,
+.backToMenuHover:hover {
+	color: red;
+}
+
+.positiveChoiceFocus:focus,
+.negativeChoiceFocus:focus,
+.backToMenuFocus:focus {
+	color: red;
+}
+/* оформление выбора */
+
+/* поле с кнопкой "Бежать" */
+.backToMenuField {
+	position: absolute;
+	width: 250px;
+	height: 60px;
+	top: 50px;
+}
+
+.backToMenuContainer {
+	text-align: center;
+	margin: 0;
+	position: relative;
+	top: 13px;
+}
+
+.backToMenu {
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+/* поле с кнопкой "Бежать" */
+
+
+/* поле со здоровьем */
+.healthField {
+	position: absolute;
+	width: 250px;
+	height: 100px;
+	top: 110px;
+}
+
+.heart {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	left: 25px;
+	top: 15px;
+	background: url(../img/hearts.svg) center center no-repeat;
+}
+
+.playerHealthContainer {
+	position: absolute;
+	width: 105px;
+	left: 115px;
+	top: 29px;
+}
+
+.playerHealthCounter {
+	text-align: center;
+	margin: 0;
+	color: white;
+	font-size: 50px;
+	font-family: "Press Start 2P", cursive;
+}
+/* поле со здоровьем */
+
+
+/* поле с монетами */
+.coinsField {
+	position: absolute;
+	width: 250px;
+	height: 100px;
+	top: 210px;
+}
+
+.coin {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	left: 25px;
+	top: 15px;
+	background: url("../img/coin.png") center center no-repeat;
+}
+
+.playerCoinsContainer {
+	position: absolute;
+	width: 105px;
+	left: 115px;
+	top: 29px;
+}
+
+.playerCoinsCounter {
+	text-align: center;
+	margin: 0;
+	color: white;
+	font-size: 50px;
+	font-family: "Press Start 2P", cursive;
+}
+/* поле с монетами */
+
+
+/* поле с колокольчиком */
+.endOfTurn {
+	position: absolute;
+	width: 228px;
+	height: 90px;
+	top: 310px;
+	left: 11px;
+	transition-duration: 0.1s;
+	border: 0;
+	background-size: 100% 100%;
+}
+
+.endOfTurnBrownBell {
+	background: url("../img/brownBell.jpg") center center no-repeat;
+}
+
+.endOfTurnBlueBell {
+	background: url("../img/blueBell.jpg") center center no-repeat;
+}
+
+.endOfTurnActive:active {
+	top: 312px;
+	transition-duration: 0.01s;
+}
+/* поле с колокольчиком */
+
+
+/* поле с колодой */
+.deckField {
+	position: absolute;
+	width: 250px;
+	height: 140px;
+	top: 400px;
+}
+
+.playerDeck {
+	width: 89px;
+	height: 116px;
+	margin: 12px 18px;
+	background-image: url("../img/deck.jpg");
+	transition-duration: 0.01s;
+}
+
+.playerDeckBackground {
+	background-image: url("../img/emptyDeck.jpg");
+}
+
+.playerDeckContainer {
+	position: absolute;
+	width: 105px;
+	left: 115px;
+	top: 38px;
+}
+
+.playerDeckCounter {
+	text-align: center;
+	margin: 0;
+	color: white;
+	font-size: 50px;
+	font-family: "Press Start 2P", cursive;
+}
+/* поле с колодой */
+
+
+/* поле с картами компьютера */
+.computerField {
+	position: absolute;
+	padding: 12px 25px;
+	width: 710px;
+	height: 180px;
+	left: 250px;
+}
+
+.computerCell1,
+.computerCell2,
+.computerCell3,
+.computerCell4 {
+	position: absolute;
+	width: 128px;
+	height: 170px;
+	background-image: url("../img/cellRound.jpg");
+	top: 5px;
+}
+
+.computerCell1 {
+	left: 60px;
+}
+
+.computerCell2 {
+	left: 214px;
+}
+
+.computerCell3 {
+	left: 368px;
+}
+
+.computerCell4 {
+	left: 522px;
+}
+/* поле с картами компьютера */
+
+
+/* поле с картами игрока */
+.playerField {
+	position: absolute;
+	width: 710px;
+	height: 180px;
+	left: 250px;
+	top: 180px;
+}
+
+.playerCell1,
+.playerCell2,
+.playerCell3,
+.playerCell4 {
+	position: absolute;
+	width: 128px;
+	height: 170px;
+	background-image: url("../img/cell.jpg");
+	top: 5px;
+	
+}
+
+.playerCell1 {
+	left: 60px;
+}
+
+.playerCell2 {
+	left: 214px;
+}
+
+.playerCell3 {
+	left: 368px;
+}
+
+.playerCell4 {
+	left: 522px;
+}
+/* поле с картами игрока */
+
+
+/* поле с картами которые на руках у игрока */
+.playerCardsContainer {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	padding: 5px 5px 0px 5px;
+	width: 710px;
+	height: 180px;
+	left: 250px;
+	top: 360px;
+}
+
+.substrateForPlayerCards {
+	max-width: 128px;
+	min-width: 15px;
+	width: auto;
+	height: 170px;
+	margin: 0;
+	padding: 0;
+	flex: 1;
+}
+
+.cardFromTheDeck {
+	max-width: 128px;
+	min-width: 15px;
+	width: auto;
+	height: 170px;
+	margin: 0;
+	padding: 0;
+	flex: 1;
+	animation: cardDraw 0.25s linear forwards;
+	position: absolute;
+}
+
+@keyframes cardDraw {
+	0% {
+		left: -233px;
+		z-index: 2;
+	}
+	100% {
+		left: 0px;
+		z-index: 2;
+	}
+}
+
+.substrateForPlayerCards:last-child {
+	width: 128px;
+	flex: 0 0 128px;
+	margin: 0 7px 0 0;
+}
+
+.cardInHand {
+	display: block;
+	position: absolute;
+	width: 128px;
+	height: 170px;
+	background-color: #6C7750;
+	margin: 0;
+	border: 1px solid black;
+}
+
+.cardInHand:hover {
+	transform: translate(0, -60px);
+	box-shadow: 20px 10px 10px black;
+	z-index: 2;
+}
+
+.cardInHand:hover::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 100%;
+	bottom: -60px;
+	z-index: -1;
+}
+/* поле с картами которые на руках у игрока */
+
+
+/* оформление карты */
+.cardCostBlock,
+.cardAttackBlock,
+.cardHealthBlock,
+.cardPictureBlock,
+.cardNameBlock {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+}
+
+.cardCostBlock {
+	width: 39px;
+	height: 60px;
+	left: 4px;
+	background: url("../img/cardCoin.svg") center center no-repeat;
+}
+
+.cardAttackBlock {
+	width: 42px;
+	height: 60px;
+	left: 44px;
+	background: url("../img/cardAttack.svg") center center no-repeat;
+}
+
+.cardHealthBlock {
+	width: 39px;
+	height: 60px;
+	left: 85px;
+	background: url("../img/cardHearts.svg") center center no-repeat;
+}
+
+.cardCost,
+.cardAttack,
+.cardHealth {
+	position: relative;
+	top: 9px;
+	left: 1px;
+}
+
+.cardPictureBlock {
+	width: 128px;
+	height: 80px;
+	top: 60px;
+}
+
+.cardNameBlock {
+	width: 128px;
+	height: 30px;
+	top: 140px;
+}
+
+.cardCost,
+.cardAttack,
+.cardHealth,
+.cardName {
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: "Press Start 2P", cursive;
+}
+
+.cardName {
+	margin: 6px auto;
+}
+/* оформление карты */
+
+
+/* оформление карты когда она активна */
+.cardAction > div {
+	background-color: #990000;
+}
+/* оформление карты когда она активна */
+
+
+/* оформление карты когда она лежит в ячейке */
+.playerCardOnCell {
+	position: relative;
+	width: 128px;
+	height: 170px;
+	background-color: #6C7750;
+	border: 1px solid black;
+}
+
+.computerCardOnCell {
+	position: relative;
+	width: 128px;
+	height: 170px;
+	background-color: #CE7821;
+	border: 1px solid white;
+}
+/* оформление карты когда она лежит в ячейке */
+
+
+/* анимация карты при ударе */
+.playerCardBattle {
+	animation: playerCardAttack 2.5s ease-out forwards;
+}
+
+@keyframes playerCardAttack {
+	0% {
+		top: 0px;
+		z-index: 2;
+		box-shadow: 10px 5px 5px black;
+	}
+	40% {
+		z-index: 2;
+		transform: translate3d(-5px, -15px, 30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	50% {
+		z-index: 2;
+		transform: translate3d(-5px, -50px, 30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	60% {
+		z-index: 2;
+		transform: translate3d(-5px, -15px, 30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	95% {
+		top: 2px;
+		z-index: 2;
+		box-shadow: 10px 5px 5px black;
+	}
+	100% {
+		top: 0px;
+		z-index: 2;
+		box-shadow: 3px 1px 1px black;
+	}
+}
+
+.computerCardBattle {
+	animation: computerCardAttack 2.5s ease-out forwards;
+}
+
+@keyframes computerCardAttack {
+	0% {
+		top: 0px;
+		z-index: 2;
+		box-shadow: 10px 5px 5px black;
+	}
+	40% {
+		z-index: 2;
+		transform: translate3d(5px, 15px, -30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	50% {
+		z-index: 2;
+		transform: translate3d(5px, 50px, -30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	60% {
+		z-index: 2;
+		transform: translate3d(5px, 15px, -30px);
+		box-shadow: 20px 10px 10px black;
+	}
+	95% {
+		top: 2px;
+		z-index: 2;
+		box-shadow: 10px 5px 5px black;
+	}
+	100% {
+		top: 0px;
+		z-index: 2;
+		box-shadow: 3px 1px 1px black;
+	}
+}
+/* анимация карты при ударе */

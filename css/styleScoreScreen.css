@@ -1,0 +1,197 @@
+/* Таблица */
+.scoreTable {
+	position: absolute;
+	background-image: url("../img/hands.jpg");
+	background-size: cover;
+}
+
+.scoreTableBlock {
+	height: 70%;
+	margin: 45px auto;
+}
+
+.table {
+	width: 700px;
+	height: 100%;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "Press Start 2P", cursive;
+	text-align: center;
+	color: white;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.table tr td {
+	border: 1px solid white;
+}
+
+.leftCell {
+	width: 100px;
+}
+
+.centerCell {
+	width: 480px;
+	word-break: break-all;
+}
+/* Таблица */
+
+/* Кнопка "Назад" */
+.returnMenuBlock {
+	text-align: center;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: 87%;
+}
+
+.returnMenu {
+	position: relative;
+	font-size: 30px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+/* Кнопка "Назад" */
+
+/* Контейнер с записью результатов игрока */
+.userResultsbackground {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.userResultsContainer {
+	position: absolute;
+	width: 60%;
+	height: 57%;
+	background: black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid white;
+}
+
+.congratulationBlock {
+	position: relative;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-family: "Press Start 2P", cursive;
+	line-height: 1.5;
+	margin: 25px;
+}
+
+.messageBlock {
+	position: relative;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-family: "Press Start 2P", cursive;
+	margin: 20px;
+}
+
+.inputBlock {
+	position: relative;
+	width: 400px;
+	height: 30px;
+	margin: 30px 50%;
+	transform: translate(-50%, -50%);
+	background: black;
+	color: white;
+	font-size: 15px;
+	font-family: "Press Start 2P", cursive;
+	padding: 8px;
+	border: 1px solid white;
+}
+
+.positiveContainer,
+.negativeContainer {
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+	top: -30px;
+}
+
+.positiveContainer {
+	left: 100px;
+}
+
+.negativeContainer {
+	left: 150px;
+}
+
+.positive,
+.negative {
+	font-size: 25px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+
+.recordedContainer,
+.errorContainer {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: black;
+	border: 1px solid white;
+}
+
+.recordedBlock,
+.errorBlock {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	padding: 10px;
+	margin: 0;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	line-height: 1.5;
+	font-family: "Press Start 2P", cursive;
+}
+
+.acceptBlock {
+	position: absolute;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.accept {
+	font-size: 25px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+/* Контейнер с записью результатов игрока */
+
+.returnMenuHover:hover,
+.positiveHover:hover,
+.negativeHover:hover,
+.accept:hover {
+	color: red;
+}
+
+.returnMenuFocus:focus,
+.positiveFocus:focus,
+.negativeFocus:focus,
+.accept:focus {
+	color: red;
+}

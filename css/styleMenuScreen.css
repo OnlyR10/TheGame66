@@ -1,0 +1,345 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background: black;
+}
+
+.bodyBackgroundImage {
+	background: url("../img/table.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+#scale-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-origin: center center;
+}
+
+#screen-container {
+	width: 960px;
+	height: 540px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	user-select: none;
+}
+
+#menu {
+	position: relative;
+}
+
+#menu a:hover,
+#menu a:focus {
+	color: red;
+}
+
+.bgVideo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+}
+
+/* Кнопки в меню */
+.newGameContainer,
+.scoreContainer,
+.instructionContainer,
+.soundContainer {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.newGame,
+.score,
+.instruction,
+.sound {
+	position: relative;
+	font-size: 30px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+
+.newGame {
+	top: 150px;
+}
+
+.score {
+	top: 200px;
+}
+
+.instruction {
+	top: 250px;
+}
+
+.sound {
+	top: 300px;
+	left: -40px;
+}
+
+.soundImage {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 418px;
+	left: 550px;
+	transform: translate(-50%, -50%);
+}
+
+.soundOn {
+	background: url("../img/SoundOn.svg") center center no-repeat;
+}
+
+.soundOff {
+	background: url("../img/SoundOff.svg") center center no-repeat;
+}
+/* Кнопки в меню */
+
+
+/* Инструкция */
+/* Оглавление */
+.instructionMenu {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../img/splash.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+.instructionName {
+	position: relative;
+	top: 55px;
+	text-align: center;
+	margin: 0;
+	font-size: 30px;
+	color: white;
+	font-family: "Press Start 2P", cursive;
+}
+
+.partitionContainer {
+	position: relative;
+	top: 65px;
+	width: 410px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.sectionGeneral,
+.gameSection,
+.cardsSection {
+	position: absolute;
+	margin: 0;
+	width: 105px;
+	height: 50px;
+}
+
+.gameSection {
+	left: 162px;
+}
+
+.cardsSection {
+	left: 302px;
+}
+
+.general,
+.game,
+.cards {
+	position: relative;
+	display: block;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	padding: 0 0 5px;
+}
+
+.currentTab {
+	border-bottom: 1px solid red;
+}
+/* Оглавление */
+
+
+/* Содержимое ОБЩЕЕ */
+.generalContainer,
+.cardsContainer,
+.gameContainer {
+	position: absolute;
+	top: 155px;
+	left: 70px;
+	width: 800px;
+	height: 295px;
+}
+
+.healthTextBlock,
+.coinTextBlock,
+.bellTextBlock,
+.deckTextBlock {
+	position: absolute;
+	left: 270px;
+	font-size: 17px;
+	color: white;
+	font-family: "Press Start 2P", cursive;
+}
+
+.healthTextBlock {
+	top: 25px;
+}
+
+.coinTextBlock {
+	top: 95px;
+}
+
+.bellTextBlock {
+	top: 160px;
+}
+
+.deckTextBlock {
+	top: 230px;
+}
+
+.healthImgBlock {
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	top: 5px;
+	left: 145px;
+	background: url(../img/hearts.svg) center center no-repeat;
+	background-size: cover;
+}
+
+.coinImgBlock {
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	top: 75px;
+	left: 145px;
+	background: url(../img/coin.png) center center no-repeat;
+	background-size: cover;
+}
+
+.bellImgBlock {
+	position: absolute;
+	width: 110px;
+	height: 50px;
+	top: 145px;
+	left: 115px;
+	background: url(../img/brownBell.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+.deckImgBlock {
+	position: absolute;
+	width: 60px;
+	height: 80px;
+	top: 210px;
+	left: 140px;
+	background: url(../img/deck.jpg) center center no-repeat;
+	background-size: cover;
+}
+/* Содержимое ОБЩЕЕ */
+
+
+/* Содержимое КАРТЫ */
+.priceTextBlock,
+.attackTextBlock,
+.lifeTextBlock {
+	position: absolute;
+	left: 300px;
+	font-size: 17px;
+	color: white;
+	font-family: "Press Start 2P", cursive;
+}
+
+.priceTextBlock {
+	top: 50px;
+}
+
+.attackTextBlock {
+	top: 130px;
+}
+
+.lifeTextBlock {
+	top: 210px;
+}
+
+.priceImgBlock,
+.attackImgBlock,
+.lifeImgBlock {
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	left: 210px;
+	background-size: cover;
+}
+
+.priceImgBlock {
+	top: 30px;
+	background: url(../img/cardCoin.svg) center center no-repeat;
+}
+
+.attackImgBlock {
+	top: 110px;
+	background: url(../img/cardAttack.svg) center center no-repeat;
+}
+
+.lifeImgBlock {
+	top: 190px;
+	background: url(../img/cardHearts.svg) center center no-repeat;
+}
+/* Содержимое КАРТЫ */
+
+
+/* Содержимое ИГРА */
+.descriptionSection {
+	font-size: 15px;
+	text-align: center;
+	margin: 0;
+	line-height: 1.2;
+	color: white;
+	font-family: "Press Start 2P", cursive;
+}
+/* Содержимое ИГРА */
+
+
+.closeInstruction {
+	position: absolute;
+	top: 480px;
+	left: 480px;
+	margin: 0;
+	transform: translate(-50%, -50%);
+}
+
+.close {
+	position: relative;
+	font-size: 30px;
+	color: white;
+	text-decoration: none;
+	transition-duration: 0.6s;
+	font-family: "Press Start 2P", cursive;
+}
+/* Инструкция */
+
+
+.hideElem {
+	display: none;
+}
