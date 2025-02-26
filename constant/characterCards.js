@@ -1,11 +1,11 @@
 function createCharacterCard(name, price, attack, hitPoints, icon) {
-	return {
-		name: name,
-		price: price,
-		attack: attack,
-		hitPoints: hitPoints,
-		icon: icon,
-	}
+  return {
+    name: name,
+    price: price,
+    attack: attack,
+    hitPoints: hitPoints,
+    icon: icon,
+  };
 }
 
 const mite = createCharacterCard("Mite", 1, 1, 1, "Mite");
@@ -47,11 +47,41 @@ const stoneWall = createCharacterCard("StoneWall", 0, 0, 4, "StoneWall");
 const fence = createCharacterCard("Fence", 0, 0, 3, "Fence");
 
 const characterCards = [
-						mite, spider, axolotl, pangolin, pegasus,
-						bat, bear, bull, cricket, eagle, elephant,
-						squid, gorilla, griffin, lynx, mantaRay,
-						mantis, rhino, shark, tiger, crocJaws,
-						lion, scorpion, serpent, werewolf, wolf,
-						minotaur, angler, dinosaur, snake, rat,
-						bee, crab, turtle, rock, stoneWall, fence
-					   ];
+  mite,
+  spider,
+  axolotl,
+  pangolin,
+  pegasus,
+  bat,
+  bear,
+  bull,
+  cricket,
+  eagle,
+  elephant,
+  squid,
+  gorilla,
+  griffin,
+  lynx,
+  mantaRay,
+  mantis,
+  rhino,
+  shark,
+  tiger,
+  crocJaws,
+  lion,
+  scorpion,
+  serpent,
+  werewolf,
+  wolf,
+  minotaur,
+  angler,
+  dinosaur,
+  snake,
+  rat,
+  bee,
+  crab,
+  turtle,
+  rock,
+  stoneWall,
+  fence,
+];
