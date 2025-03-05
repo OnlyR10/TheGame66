@@ -1,29 +1,41 @@
-class LoginScreen {
+class RegistrationScreen {
   constructor() {
     this.container = document.body;
-    this.loginScreen = null;
+    this.registrationScreen = null;
+    this.responseContainer = null;
     this.title = null;
     this.form = null;
-    this.userNameLabel = null;
     this.userNameInput = null;
-    this.userPasswordLabel = null;
     this.userPasswordInput = null;
+    this.userConfirmPasswordInput = null;
     this.buttonsContainer = null;
     this.submitButton = null;
     this.clearButton = null;
+    this.notification = null;
   }
 
-  async login(event) {
+  async registration(event) {
+    this.responseContainer.innerText = "";
+    this.responseContainer.classList.remove("show-error");
+
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const submitData = {
       username: formData.get("username"),
       password: formData.get("password"),
+      confirmPassword: formData.get("confirmPassword"),
     };
 
+    if (submitData.password !== submitData.confirmPassword) {
+      this.responseContainer.innerText = "Пароли не совпадают";
+      this.responseContainer.classList.add("show-error");
+
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch("http://localhost:5000/auth/registration", {
         method: "POST",
         body: JSON.stringify(submitData),
         headers: { "Content-Type": "application/json" },
@@ -41,8 +53,6 @@ class LoginScreen {
         });
       }
     } catch (error) {
-      this.userNameInput.value = "";
-      this.userPasswordInput.value = "";
       this.responseContainer.innerText = `${error.message}`;
       this.responseContainer.classList.add("show-error");
     }
@@ -51,42 +61,53 @@ class LoginScreen {
   init() {
     this.container.classList.add("bodyBackgroundImage");
 
-    this.loginScreen = document.createElement("div");
-    this.loginScreen.id = "loginScreen";
-    this.loginScreen.classList.add("screen", "centering");
-    this.container.append(this.loginScreen);
+    this.registrationScreen = document.createElement("div");
+    this.registrationScreen.id = "registration";
+    this.registrationScreen.classList.add("screen", "centering");
+    this.container.append(this.registrationScreen);
 
     this.responseContainer = document.createElement("p");
     this.responseContainer.id = "responseContainer";
     this.responseContainer.classList.add("error-container");
     this.responseContainer.innerText = "";
-    this.loginScreen.append(this.responseContainer);
+    this.registrationScreen.append(this.responseContainer);
 
     this.title = document.createElement("h1");
     this.title.classList.add("title");
-    this.title.innerText = "Авторизация";
-    this.loginScreen.append(this.title);
+    this.title.innerText = "Регистрация";
+    this.registrationScreen.append(this.title);
 
     this.form = document.createElement("form");
     this.form.id = "form";
     this.form.classList.add("form");
-    this.form.addEventListener("submit", this.login.bind(this));
-    this.loginScreen.append(this.form);
+    this.form.addEventListener("submit", this.registration.bind(this));
+    this.registrationScreen.append(this.form);
 
     this.userNameInput = document.createElement("input");
-    this.userNameInput.classList.add("form-input");
+    this.userNameInput.classList.add("form-input", "input-login");
+    this.userNameInput.id = "username";
     this.userNameInput.setAttribute("name", "username");
     this.userNameInput.setAttribute("placeholder", "Логин");
     this.userNameInput.setAttribute("required", true);
     this.form.append(this.userNameInput);
 
     this.userPasswordInput = document.createElement("input");
-    this.userPasswordInput.classList.add("form-input");
+    this.userPasswordInput.classList.add("form-input", "input-password");
+    this.userPasswordInput.id = "password";
     this.userPasswordInput.setAttribute("name", "password");
     this.userPasswordInput.setAttribute("type", "password");
     this.userPasswordInput.setAttribute("placeholder", "Пароль");
     this.userPasswordInput.setAttribute("required", true);
     this.form.append(this.userPasswordInput);
+
+    this.userConfirmPasswordInput = document.createElement("input");
+    this.userConfirmPasswordInput.classList.add("form-input", "input-confirm-password");
+    this.userConfirmPasswordInput.id = "confirmPassword";
+    this.userConfirmPasswordInput.setAttribute("name", "confirmPassword");
+    this.userConfirmPasswordInput.setAttribute("type", "password");
+    this.userConfirmPasswordInput.setAttribute("placeholder", "Подтвердите пароль");
+    this.userConfirmPasswordInput.setAttribute("required", true);
+    this.form.append(this.userConfirmPasswordInput);
 
     this.buttonsContainer = document.createElement("div");
     this.buttonsContainer.classList.add("buttons-container");
@@ -105,8 +126,8 @@ class LoginScreen {
 
     this.notification = document.createElement("a");
     this.notification.classList.add("notification");
-    this.notification.innerText = "Перейти к регистрации";
-    this.notification.setAttribute("href", "http://127.0.0.1:5500/registration.html");
-    this.loginScreen.append(this.notification);
+    this.notification.innerText = "У меня уже есть учетная запись";
+    this.notification.setAttribute("href", "http://127.0.0.1:5500/login.html");
+    this.registrationScreen.append(this.notification);
   }
 }

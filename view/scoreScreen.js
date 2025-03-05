@@ -55,7 +55,7 @@ class ScoreScreen {
     this.inputBlock.classList.add("inputBlock");
     this.inputBlock.setAttribute("type", "text");
     this.inputBlock.setAttribute("name", "userName");
-    this.inputBlock.setAttribute("value", "");
+    this.inputBlock.setAttribute("readonly", true);
     this.inputBlock.setAttribute("autocomplete", "off");
     this.userResultsContainer.append(this.inputBlock);
     this.positiveContainer = document.createElement("p");
@@ -107,6 +107,7 @@ class ScoreScreen {
 
   stopGame(playerTotalNumberOfMoves) {
     this.userResultsbackground.classList.remove("hideElem");
+    this.inputBlock.value = JSON.parse(sessionStorage.getItem("user"))?.name;
     this.userResult = playerTotalNumberOfMoves;
   }
 
@@ -120,42 +121,52 @@ class ScoreScreen {
       });
   }
 
-  // getUsersRecords() {
-  // 	return myAppDB.collection("users").get()
-  // 	.then((querySnapshot) => {
-  // 		const usersData = querySnapshot.docs.map( (doc) => doc.data());
-  // 		usersData.sort( (a, b) => a.record - b.record);
-  // 		this.leaders = usersData.slice(0, 8);
-
-  // 	})
-  // 	.catch((error) => {
-  // 		this.scoreTableBlock.classList.add("hideElem");
-  // 		this.errorContainer.classList.remove("hideElem");
-  // 		this.errorBlock.innerText = `Не удается получить данные с сервера`;
-  // 	})
-  // 	.finally( () => {
-  // 		this.inputBlock.value = "";
-  // 	})
-  // }
-
   async getUsersRecords() {
-    const users = await fetch("http://localhost:5000/auth/users", { method: "GET" }).then((response) => {
-      console.log("response", response);
-    });
+    return fetch("http://localhost:5000/auth/users", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("user"))?.token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        const usersData = response.map((user) => {
+          return { name: user.username, record: user.score };
+        });
+
+        usersData.sort((a, b) => a.record - b.record);
+
+        this.leaders = usersData.slice(0, 8);
+      })
+      .catch((error) => {
+        console.log(error);
+
+        this.scoreTableBlock.classList.add("hideElem");
+        this.errorContainer.classList.remove("hideElem");
+        this.errorBlock.innerText = `Не удается получить данные с сервера`;
+      })
+      .finally(() => {
+        this.inputBlock.value = "";
+      });
   }
 
-  addUsersRecords(name, playerTotalNumberOfMoves) {
-    return myAppDB
-      .collection("users")
-      .add({
-        name: name,
-        record: playerTotalNumberOfMoves,
-      })
-      .then((docRef) => {
+  async addUsersRecords(name, playerTotalNumberOfMoves) {
+    const body = JSON.stringify({ username: name, score: playerTotalNumberOfMoves });
+
+    console.log(" ScoreScreen - addUsersRecords - body:", body);
+    return fetch("http://localhost:5000/auth/users", {
+      method: "PUT",
+      body,
+      headers: {
+        Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("user"))?.token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then(() => {
         this.errorContainer.classList.remove("hideElem");
         this.errorBlock.innerText = `Данные успешно сохранены`;
       })
-      .catch((error) => {
+      .catch(() => {
         this.errorContainer.classList.remove("hideElem");
         this.errorBlock.innerText = `Данные не были записаны`;
       })

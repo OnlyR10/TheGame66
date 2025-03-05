@@ -1,5 +1,0 @@
-class AuthController {
-  constructor() {}
-
-  init() {}
-}
